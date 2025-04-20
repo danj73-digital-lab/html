@@ -3,131 +3,85 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Recensioni Clienti - Portale Sardegna</title>
+  <title>Recensioni Clienti - PortaleSardegna</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
-    }
-    header, footer {
-      background-color: #003366;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 20px;
-      background: white;
-    }
-    .summary {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 20px;
-      background-color: #fff6e0;
-      padding: 15px;
-      border: 1px solid #ffc107;
-    }
-    .filters {
-      margin-bottom: 20px;
-    }
-    .filters select {
-      margin-right: 10px;
-    }
-    .review {
-      border-bottom: 1px solid #ddd;
-      padding: 10px 0;
-    }
-    .review:last-child {
-      border-bottom: none;
-    }
-    .stars {
-      color: #ffa500;
-    }
-    .bar {
-      background: #eee;
-      height: 10px;
-      border-radius: 5px;
-      overflow: hidden;
-      margin-top: 5px;
-    }
-    .bar span {
-      display: block;
-      height: 10px;
-      background: #003366;
-    }
+    body { font-family: Arial, sans-serif; margin: 0; background: #f9f9f9; color: #333; }
+    header, footer { background: #0b5394; color: white; padding: 1rem; text-align: center; }
+    main { padding: 2rem; max-width: 1200px; margin: auto; }
+    .summary { display: flex; flex-wrap: wrap; gap: 2rem; margin-bottom: 2rem; }
+    .average-score { flex: 1; font-size: 2rem; }
+    .bar-chart { flex: 2; }
+    .bar { background: #f6b26b; height: 20px; margin: 5px 0; }
+    .filters { display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
+    .review { background: white; padding: 1rem; margin-bottom: 1rem; border-radius: 8px; box-shadow: 0 0 5px rgba(0,0,0,0.1); }
+    .review .meta { font-size: 0.9rem; color: #666; margin-bottom: 0.5rem; }
+    select, input[type="date"] { padding: 0.5rem; border-radius: 5px; border: 1px solid #ccc; }
   </style>
 </head>
 <body>
   <header>
-    <h1>Recensioni dei clienti</h1>
+    <h1>Recensioni Clienti</h1>
   </header>
-  
-  <div class="container">
-    <!-- Riepilogo valutazioni -->
+
+  <main>
     <section class="summary">
-      <div>
-        <h2>Valutazione media: 4.5/5</h2>
-        <div class="stars">★★★★☆</div>
-        <p>Basato su 258 recensioni</p>
+      <div class="average-score">
+        <strong>4.7</strong> su 5<br>
+        Basato su <strong>1.203 recensioni</strong>
       </div>
-      <div>
-        <p>5 stelle <div class="bar"><span style="width:80%"></span></div></p>
-        <p>4 stelle <div class="bar"><span style="width:15%"></span></div></p>
-        <p>3 stelle <div class="bar"><span style="width:3%"></span></div></p>
-        <p>2 stelle <div class="bar"><span style="width:1%"></span></div></p>
-        <p>1 stella <div class="bar"><span style="width:1%"></span></div></p>
+      <div class="bar-chart">
+        <div>5 stelle <div class="bar" style="width: 80%"></div></div>
+        <div>4 stelle <div class="bar" style="width: 15%"></div></div>
+        <div>3 stelle <div class="bar" style="width: 3%"></div></div>
+        <div>2 stelle <div class="bar" style="width: 1%"></div></div>
+        <div>1 stella <div class="bar" style="width: 1%"></div></div>
       </div>
     </section>
 
-    <!-- Filtri -->
     <section class="filters">
-      <label for="stars">Filtra per stelle:</label>
-      <select id="stars">
-        <option value="">Tutte</option>
-        <option value="5">5 stelle</option>
-        <option value="4">4 stelle</option>
-        <option value="3">3 stelle</option>
-        <option value="2">2 stelle</option>
-        <option value="1">1 stella</option>
-      </select>
-
-      <label for="date">Filtra per data:</label>
-      <select id="date">
-        <option value="">Tutte</option>
-        <option value="last7">Ultimi 7 giorni</option>
-        <option value="last30">Ultimi 30 giorni</option>
-      </select>
-
-      <label for="category">Filtra per categoria:</label>
-      <select id="category">
-        <option value="">Tutte</option>
-        <option value="servizio">Servizio</option>
-        <option value="struttura">Struttura</option>
-      </select>
+      <label>Filtra per valutazione:
+        <select>
+          <option>Tutte</option>
+          <option>5 stelle</option>
+          <option>4 stelle</option>
+          <option>3 stelle</option>
+          <option>2 stelle</option>
+          <option>1 stella</option>
+        </select>
+      </label>
+      <label>Filtra per data:
+        <input type="date">
+      </label>
+      <label>Filtra per categoria:
+        <select>
+          <option>Servizio</option>
+          <option>Struttura</option>
+        </select>
+      </label>
     </section>
 
-    <!-- Lista recensioni -->
-    <section class="review-list">
-      <div class="review">
-        <strong>Maria R.</strong> – 10 Aprile 2025<br>
-        <div class="stars">★★★★★</div>
-        <p>Esperienza fantastica, tutto perfetto! Consigliatissimi.</p>
-      </div>
-      <div class="review">
-        <strong>Luca B.</strong> – 3 Aprile 2025<br>
-        <div class="stars">★★★★☆</div>
-        <p>Molto bene, ma l’assistenza potrebbe essere più rapida.</p>
-      </div>
+    <section class="reviews">
+      <article class="review">
+        <div class="meta">Mario R. - 15 Aprile 2025</div>
+        <div>★★★★★ - 5.0</div>
+        <p>Esperienza fantastica, organizzazione impeccabile! Consigliatissimo.</p>
+      </article>
+      <article class="review">
+        <div class="meta">Lucia B. - 10 Aprile 2025</div>
+        <div>★★★★☆ - 4.0</div>
+        <p>Buon servizio, ma la struttura poteva essere più pulita.</p>
+      </article>
+      <article class="review">
+        <div class="meta">Gianni P. - 2 Aprile 2025</div>
+        <div>★★★★★ - 5.0</div>
+        <p>Vacanza indimenticabile, torneremo sicuramente!</p>
+      </article>
+      <!-- altre recensioni fittizie -->
     </section>
-  </div>
+  </main>
 
   <footer>
-    <p>&copy; 2025 Portale Sardegna. Tutti i diritti riservati.</p>
+    &copy; 2025 PortaleSardegna - Tutti i diritti riservati
   </footer>
 </body>
 </html>
